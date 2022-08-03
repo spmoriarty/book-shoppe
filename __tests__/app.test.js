@@ -41,7 +41,32 @@ describe('authors route', () => {
     };
     expect(res.body).toEqual(author);
   });
-
+  
+  describe('books route', () => {
+    beforeEach(() => {
+      return setup(pool);
+    });
+    it('get all books route!', async () => {
+      const res = await request(app).get('/books');
+      const expected = [{
+        id: 1,
+        title: 'Brave New World',
+        released: 1932,
+      },
+      {
+        id: 2,
+        title: '1984',
+        released: 1949,
+      }
+      ];
+      console.log(res.body);
+      expect(res.body[2]).toEqual({
+        id: '3',
+        title: 'The Great Gatsby',
+        released: 1925,
+      });
+    });
+  });
   afterAll(() => {
     pool.end();
   });
@@ -49,14 +74,3 @@ describe('authors route', () => {
 
 
 
-// describe('books route', () => {
-//   beforeEach(() => {
-//     return setup(pool);
-//   });
-//   it('example test - delete me!', () => {
-//     expect(1).toEqual(1);
-//   });
-//   afterAll(() => {
-//     pool.end();
-//   });
-// });

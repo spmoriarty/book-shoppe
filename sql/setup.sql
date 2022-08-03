@@ -22,9 +22,11 @@ INSERT INTO authors (name, dob, pob) VALUES
 ('Aldous Huxley', 1894, 'Surrey, England'),
 ('Eric Arthur Blair', 1903, 'Motihari, British India'),
 ('F. Scott Fitzgerald', 1896, 'Saint Paul, Minnesota'),
-('Franz Kafka', 1883, 'Prague, Kingdom of Bohemia')
+('Franz Kafka', 1883, 'Prague, Kingdom of Bohemia');
 
 
 
--- INSERT INTO books (title, released) VALUES
--- ('title', 1900),
+INSERT INTO books (title, released) VALUES
+('Brave New World', 1932),
+('1984', 1949),
+('The Great Gatsby', 1925);
