@@ -41,11 +41,19 @@ describe('authors route', () => {
     };
     expect(res.body).toEqual(author);
   });
-  
+  it('POST should insert into authors table', async () => {
+    const newAuthor = {
+      name: 'J.R.R. Tolkien',
+      dob: 1892,
+      pob: 'Bloemfontein, South Africa',
+    };
+    const resp = await request(app).post('/authors').send(newAuthor);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      ...newAuthor,
+    });
+  });
   afterAll(() => {
     pool.end();
   });
 });
-
-
-
