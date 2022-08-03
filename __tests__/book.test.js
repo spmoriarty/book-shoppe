@@ -37,7 +37,17 @@ describe('books route', () => {
     };
     expect(res.body).toEqual(book);
   });
-  
+  it('POST should insert into books table', async () => {
+    const newBook = {
+      title: 'Animal Farm',
+      released: 1947
+    };
+    const resp = await request(app).post('/books').send(newBook);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      ...newBook,
+    });
+  });
   afterAll(() => {
     pool.end();
   });
