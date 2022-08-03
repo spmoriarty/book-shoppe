@@ -31,6 +31,17 @@ describe('authors route', () => {
       pob: 'Saint Paul, Minnesota',
     });
   });
+  it('/authors/:id should return an individual author detail', async () => {
+    const res = await request(app).get('/authors/4');
+    const author = {
+      id: '4',
+      name: 'Franz Kafka',
+      dob: 1883,
+      pob: 'Prague, Kingdom of Bohemia'
+    };
+    expect(res.body).toEqual(author);
+  });
+
   afterAll(() => {
     pool.end();
   });

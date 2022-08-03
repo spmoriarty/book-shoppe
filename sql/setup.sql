@@ -21,7 +21,8 @@ CREATE table books (
 INSERT INTO authors (name, dob, pob) VALUES 
 ('Aldous Huxley', 1894, 'Surrey, England'),
 ('Eric Arthur Blair', 1903, 'Motihari, British India'),
-('F. Scott Fitzgerald', 1896, 'Saint Paul, Minnesota')
+('F. Scott Fitzgerald', 1896, 'Saint Paul, Minnesota'),
+('Franz Kafka', 1883, 'Prague, Kingdom of Bohemia')
 
 
 
