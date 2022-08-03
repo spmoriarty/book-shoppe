@@ -1,7 +1,7 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
-DROP table if exist authors
-DROP table if exist books
+DROP table if exists authors;
+DROP table if exists books;
 
 CREATE table authors (
     id BIGINT GENERATED ALWAYS AS IDENTITY,
@@ -25,5 +25,5 @@ INSERT INTO authors (name, dob, pob) VALUES
 
 
 
-INSERT INTO books (title, released) VALUES
-('title', 1900),
+-- INSERT INTO books (title, released) VALUES
+-- ('title', 1900),
