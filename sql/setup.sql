@@ -29,4 +29,5 @@ INSERT INTO authors (name, dob, pob) VALUES
 INSERT INTO books (title, released) VALUES
 ('Brave New World', 1932),
 ('1984', 1949),
-('The Great Gatsby', 1925);
+('The Great Gatsby', 1925),
+('Amerika', 1927);
