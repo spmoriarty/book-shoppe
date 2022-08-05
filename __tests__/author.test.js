@@ -25,7 +25,7 @@ describe('authors route', () => {
       books: expect.any(Array)
     }
     ];
-    console.log(res.body); 
+    
     expect(res.body[2]).toEqual({
       id: '3',
       name: 'F. Scott Fitzgerald',
