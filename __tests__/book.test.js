@@ -26,21 +26,26 @@ describe('books route', () => {
       id: '3',
       title: 'The Great Gatsby',
       released: 1925,
+      authors: expect.any(Array)
     });
   });
-  it('/books/:id should return an individual book', async () => {
+  it('/books/:id should return an individual book with authors', async () => {
     const res = await request(app).get('/books/4');
-    const book = {
-      id: '4',
-      title: 'Amerika',
-      released: 1927
-    };
-    expect(res.body).toEqual(book);
+    
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      title: expect.any(String),
+      released: expect.any(Number),
+      authors: expect.any(Array)
+      
+  
+    });
   });
   it('POST should insert into books table', async () => {
     const newBook = {
       title: 'Animal Farm',
-      released: 1947
+      released: 1947,
+      authors: expect.any(Array)
     };
     const resp = await request(app).post('/books').send(newBook);
     expect(resp.body).toEqual({

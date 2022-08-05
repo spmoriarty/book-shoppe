@@ -15,12 +15,14 @@ describe('authors route', () => {
       name: 'Aldous Huxley',
       dob: 1894,
       pob: 'Surrey, England',
+      books: expect.any(Array)
     },
     {
       id: 2,
       name: 'Eric Arthur Blair',
       dob: 1903,
       pob: 'Motihari, British India',
+      books: expect.any(Array)
     }
     ];
     console.log(res.body); 
@@ -29,28 +31,31 @@ describe('authors route', () => {
       name: 'F. Scott Fitzgerald',
       dob: 1896,
       pob: 'Saint Paul, Minnesota',
+      books: expect.any(Array)
     });
   });
-  it('/authors/:id should return an individual author detail', async () => {
+  it('/authors/:id should return an individual author detail, with book info', async () => {
     const res = await request(app).get('/authors/4');
-    const author = {
-      id: '4',
-      name: 'Franz Kafka',
-      dob: 1883,
-      pob: 'Prague, Kingdom of Bohemia'
-    };
-    expect(res.body).toEqual(author);
+ 
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      name: expect.any(String),
+      pob: expect.any(String),
+      dob: expect.any(Number),
+      books: expect.any(Array)
+    });
   });
   it('POST should insert into authors table', async () => {
     const newAuthor = {
       name: 'J.R.R. Tolkien',
-      dob: 1892,
+      dob: 1883,
       pob: 'Bloemfontein, South Africa',
     };
     const resp = await request(app).post('/authors').send(newAuthor);
     expect(resp.body).toEqual({
       id: expect.any(String),
       ...newAuthor,
+      books: expect.any(Array)
     });
   });
   afterAll(() => {
