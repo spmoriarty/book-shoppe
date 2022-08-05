@@ -10,6 +10,7 @@ describe('books route', () => {
   });
   it('get all books route!', async () => {
     const res = await request(app).get('/books');
+    // eslint-disable-next-line
     const expected = [{
       id: 1,
       title: 'Brave New World',

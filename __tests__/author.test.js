@@ -10,6 +10,7 @@ describe('authors route', () => {
   });
   it('/authors should return a list of authors', async () => {
     const res = await request(app).get('/authors');
+    // eslint-disable-next-line
     const expected = [{
       id: 1,
       name: 'Aldous Huxley',
